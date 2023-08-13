@@ -16,7 +16,6 @@ class CaixaDaLanchonete {
 
   calcularValorDaCompra(metodoDePagamento, itens) {
     if (itens.length === 0) {
-      
       return "Não há itens no carrinho de compra!";
     }
 
@@ -29,12 +28,10 @@ class CaixaDaLanchonete {
       let quantidade = Number(itensRecebidos[i][1]);
 
       if (!this.cardapio[codigoItem]) {
-        
         return "Item inválido!";
       }
 
       if (isNaN(quantidade) || quantidade === 0) {
-       
         return "Quantidade inválida!";
       }
 
@@ -46,17 +43,15 @@ class CaixaDaLanchonete {
         );
 
         if (!temCafe.length) {
-          
           return "Item extra não pode ser pedido sem o principal";
         }
       }
       if (itemCardapio === this.cardapio.queijo) {
-        const temCafe = itensRecebidos.filter(
+        const temSanduiche = itensRecebidos.filter(
           (item) => this.cardapio[item[0]] === this.cardapio.sanduiche
         );
 
-        if (!temCafe.length) {
-         
+        if (!temSanduiche.length) {
           return "Item extra não pode ser pedido sem o principal";
         }
       }
@@ -70,10 +65,9 @@ class CaixaDaLanchonete {
       } else if (metodo === "credito") {
         total *= 1.03;
       }
-      console.log("R$ " + total.toFixed(2));
+      
       return "R$ " + total.toFixed(2).replace(".", ",");
     } else {
-      
       return "Forma de pagamento inválida!";
     }
   }
